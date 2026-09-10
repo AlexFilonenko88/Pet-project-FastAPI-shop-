@@ -1,5 +1,3 @@
-from unicodedata import category
-
 from sqlalchemy import Column, Integer, String, Text, ForeignKey, Float, DateTime
 from sqlalchemy.orm import relationship
 from datetime import datetime
@@ -15,10 +13,10 @@ class Product(Base):
     price = Column(Float, index=True)
     category_id = Column(Integer, ForeignKey("categories.id"), nullable=False)
     image_url = Column(String, index=True)
-    created_at = Column(datetime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=datetime.utcnow)
 
     category = relationship("Category", back_populates="products")
 
 
     def __repr__(self):
-        return f"<Product(id={self.id}, name={self.name}, price={self.price})>"
+        return f"<Product(id={self.id}, name={self.name}, price={self.price}, description={self.description})>"
