@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     app_name: str = 'FastAPI Shop'
     debug: bool = True
-    database_url: str = 'sqlite:/// ./shop.db'
+    database_url: str = 'sqlite:///./shop.db'
     cors_origin: list = [
         'http://localhost:3000',
         'http://localhost:5137',
