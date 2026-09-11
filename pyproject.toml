@@ -1,0 +1,5 @@
+[tool.ty]
+include = ["backend"]
+exclude = ["**/.venv", "**/node_modules", "frontend"]
+[tool.ty.environment]
+python = "./backend/.venv"
