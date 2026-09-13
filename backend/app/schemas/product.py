@@ -5,7 +5,7 @@ from .category import CategoryBase, CategoryResponse
 
 
 class ProductBase(BaseModel):
-    name: str = Field(..., min_lenght=1, max_lenght=200,
+    name: str = Field(..., min_length=1, max_length=200,
                         description='Category name'
                     )
     description: Optional[str] = Field(None,
@@ -23,7 +23,7 @@ class ProductCreate(ProductBase):
 class ProductResponse(BaseModel):
     id: int = Field(..., description='Unique product ID')
     name: str
-    desctiption: Optional[str]
+    description: Optional[str]
     price: float
     category_id: int
     image_url: Optional[str]
@@ -31,7 +31,7 @@ class ProductResponse(BaseModel):
     category: CategoryResponse = Field(..., description='Product category details')
 
     class Config:
-        format_attribute = True
+        from_attributes = True
 
 
 class ProductListResponse(BaseModel):
