@@ -2,10 +2,10 @@ from pydantic import BaseModel, Field
 
 
 class CategoryBase(BaseModel):
-    name: str = Field(..., min_lenght=5, max_lenght=100,
+    name: str = Field(..., min_length=5, max_length=100,
         description='Category name'
     )
-    slug: str = Field(..., min_lenght=5, max_lenght=100,
+    slug: str = Field(..., min_length=5, max_length=100,
         description='URL-friendly category name'
     )
 
@@ -18,4 +18,4 @@ class CategoryResponse(CategoryBase):
     id: int = Field(..., description='Unique category identifier')
 
     class Config:
-        format_attribute = True
+        from_attributes = True

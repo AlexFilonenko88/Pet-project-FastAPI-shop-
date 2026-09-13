@@ -15,7 +15,7 @@ router = APIRouter(
 )
 
 
-@router.get("", responses_model=List[CategoryResponse], status_code=status.HTTP_200_OK)
+@router.get("", response_model=List[CategoryResponse], status_code=status.HTTP_200_OK)
 def get_categories(db: Session = Depends(get_db)):
     service = CategoryService(db)
 
